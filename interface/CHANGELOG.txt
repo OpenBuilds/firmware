@@ -1,0 +1,163 @@
+1.41
+-  Added Metric/Imperial option to Tools and Utils > Interface Config > Units
+
+1.40
+-  Simplified main loop GUI updates
+
+1.39
+-  Added headers to all menus
+-  Cosmetic Tweaks
+-  Exclude SET and PRB files from fileMenu setFilename functions
+-  Fix DRO update issue
+
+1.38
+-  Fixed Z- Jogspeed
+-  Fixed longer jog for 1515s
+-  Fixed grayed out ATM buttons after Setzero
+
+Fixed in 1.37
+- [x] SetZero Menu allowing settings, XYZ, X, Y or Z seperately
+
+Fixed in 1.36
+- [x] USB upload:Error handling: File already exists
+- [x] Machine Profile Menu
+- [x] Machine Profiles in Interface Wizard CONTROL v1.0.269 
+- [x] Cosmetic Updates / SetLEDs bug
+
+Fixed in 1.35
+-  USB upload: Error handling: Not in Jogmode and Drive Not Ready errors. 
+
+Fixed in 1.34
+-  USB upload: trim filename spaces
+
+Fixed in 1.30-33
+-  Added USB upload
+
+Fixed in 1.29
+-   [INTF:ver-1.29] ID string on connect
+
+Fixed in 1.28
+-  Added Firmware Update Avail notification to Util Button
+
+Fixed in 1.27
+-  Improved spacing of Wifi Status  [fixed]
+-  Bug: Grbl status grayed out in jog [fixed]
+-  BUG Beep and Vibrate disabled on first boot [fixed]
+-  WM AP  - add Mac to avoid duplicate interfaces conflicting  [fixed]
+
+Fixed (CONTROL v1.0.262)
+-  Firmware Update Utility in CONTROL 
+
+Fixed in 1.26
+-  DRO frozen in Run Job: fixed
+
+Fixed in 1.25
+
+Fixed in 1.24
+-  Factory version
+
+Fixed in 1.23
+-  remove pause from probe routines
+
+Fixed in 1.22
+-  Fixed LED to react to flashdrive in/out
+-  Show filesystem on button
+-  added lables to menus
+
+Fixed in v1.20-1.21
+-  Home Enabled detection better on $$
+-  Probe item moved to be first in UtilMenu
+-  On Job/Probe complete, OK instead of cancel 
+-  On homing, and JobRunning, Cancel button is now RED
+-  Fixed Homing Reset alarm message
+-  Fixed gotozero from sending double moves on hold
+
+Fixed in v1.19
+-  Improved probe window error handling
+-  Probing: Variable replacement
+
+Fixed in v1.16-1.18
+-  [Todo] Probe Window and functions
+
+Fixed in v1.15
+-  Jog distance (soft limits) 
+-  Fixed serial parser for $$ (larger buffer was needed)
+
+Fixed in v1.14
+-  Handle all update related errors with GUI messages
+
+Interim v1.13
+-  Same as v1.12, but numbered 1.13 for Internal testing of online update
+
+Fixed in v1.12
+-  Auto Unlock if Homing Lock is active when Interface boots
+-  Https Update
+-  Updated WifiManager
+-  fixed grbl parser bug (deleted line in 1.11)
+-  Online firmware update check:  Check available version number online and show "[update avail v1.xx]" on boot screen
+-  move interface settings into Util menu
+-  mode button reclick not close menu (no fix needed, moved to util menu)
+-  Jog feedrate as % of max feedrate
+-  fixed green glitch on menu if last item is a folder
+-  test subfolder firmware location
+-  shortened keyDelay, increased frequency of beep
+
+Fixed in v1.11
+-  USB Update GUI: Put update.bin, or file17.bin (must be .bin, but you can name it whatever you want before the dot) on flashdrive, open file, select bin, update runs
+-  v1.11 updates broke Pause (pause opens dialog, but can see from LEDS that state isnt set right)
+-  1st draft of USB update code - functionally working, needs gui
+-  Spindle on/off item
+-  Laser Focus/off item
+-   Tool on/off menu changes between Spindle and Laser based on status of Grbl=$32 automatically
+-  Parse Max Travel ($130-132) for Jog Calculations (distance for continuous jogging)
+-  Parse Max Feedrates ($110-112) for Jog calculations (feedrate percentages)
+-  Parse some Grbl settings (check if limits are installed and disable home button if not, check soft limits enabled, and then know axis max travels for continous jog, etc)
+
+Fixed in v1.10
+-  Util Menu button with dummy menu
+
+Fixed in v1.9
+-  LED brightness 50% (as of 1.4) default (menu says its 100%), with menu options for MORE than 100% or less)
+-   temporary increase max jog speed till speeds can be parsed: changed to 100%=3500mm/min
+-  [Parser Done] Grbl's [MSG] messages  (printed on statusbar at the top: BETA-  test please
+-  [Parser Done]Parse Pin status - probe/limit troubleshooting icons 
+-  [Bug] Job complete, cancel does not work - have to reset.   (Can't replicate anymore)
+
+
+Fixed in v1.8
+-  Errors wasn't drawn because     menu.parseGrblStatus(true); vs     menu.parseGrblStatus(false); in loop()
+-  Hard limit cancel, not responding 
+
+
+Fixed in v1.7
+-  Mode button also acts as close-settingsMenu
+-  Bug: Mode button menu, if already open, ignore mode button (else it redraws without border)
+-  GCO/TAP/NC/CNC file own icon in menu
+-  GCO/TAP/NC/CNC files different colors to make identifying easier
+-  wifi name - truncate long AP names to not scroll over onto newline
+-  Make run button Green on file loaded to indicate you can now run the job (don't forget to zero though)
+
+Fixed in v1.6
+-  Removed repeat from override buttons, they are meant to be single action
+
+Fixed in v1.5
+-  Stuttering Serial
+-  Bug: Jog while navigating settings menu
+
+Fixed in v1.4
+-  Settings menu: LCD B/L, LED B/L, Vibrate On/Off, Speaker on/off (press MODE button, without USB-C Cable connected)
+-  [Wishlist] Progress bar / Job progress [DONE]
+-  [Bug]Home button triggers $H twice sometimes [FIXED]
+-  [Workaround]No feedback during homing - add workaround - show Homing so it doesnt show disconnected  also no Cancel button during homing [FIXED]
+-  Jog Feed simplify, not mm/min [UPDATED, TEST PLEASE]
+-  LEDs to really follow grayout, for example when unplug usb [FIXED, LET ME KNOW IF YOU FIND MORE]
+-  Bug, disable homing, clicking button, cancel does not redraw [FIXED, MONITOR RECURRENCE]
+
+Fixed in v1.3
+-  different icon for gotozero
+-  Job complete - Add Noise! 
+-  LEDs behind ATM btns to show they are buttons
+-  Two unused buttons in run mode  gray out for now (ATM1 and ATM5)
+-  Move Feed/Speed override down toward bottom, nearer their DROs
+-  page next of file menu - does not clear background (Sample file zip obtained from M)
+-  Shrink DRO to grow labels for atm buttons
