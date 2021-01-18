@@ -5,7 +5,9 @@
 - Enhanced USB Drive BIN file update process (Allow full OTA size)
 
 1.42
-- Implemented Grbl Edit Profile Menu1.41
+- Implemented Grbl Edit Profile Menu
+
+1.41
 -  Added Metric/Imperial option to Tools and Utils > Interface Config > Units
 
 1.40
