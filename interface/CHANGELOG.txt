@@ -1,3 +1,9 @@
+1.45
+ - Moved Spindle Off to Spindle ON position to avoid accidents
+
+1.44
+ - Fixed bug with Pause button
+
 1.43
 - Added less popular items to Grbl Edit Profile Menu
 - Added bitwise calculations for Step Invert, Dir Invert and Homing Dir menus
