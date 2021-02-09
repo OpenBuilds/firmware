@@ -1,3 +1,8 @@
+1.46
+ - Make jogspeed buttons single-press for precision
+ - Changed pause procedure to react to Grbl Feedback
+ - Fixed CR/LF bug
+
 1.45
  - Moved Spindle Off to Spindle ON position to avoid accidents
 
