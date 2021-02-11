@@ -1,3 +1,10 @@
+1.47
+- Fixed HOME button bug
+- Fixed blank screen DRO issue
+- Increased DRO update frequency
+- Added Wifi Reset menu item in Interface Config (to forget Wifi Network)
+- Updated Wifi Manager Library
+
 1.46
  - Make jogspeed buttons single-press for precision
  - Changed pause procedure to react to Grbl Feedback
