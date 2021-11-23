@@ -1,3 +1,9 @@
+1.49
+- Cosmetic: Removed Compilation Date from Splash Screen 
+
+1.48
+- Improved Error messages for Wifi connection failure
+
 1.47
 - Fixed HOME button bug
 - Fixed blank screen DRO issue
