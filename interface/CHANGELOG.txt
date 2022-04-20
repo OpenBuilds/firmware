@@ -1,3 +1,7 @@
+1.52
+- Updated raw.githubusercontent.com CA certificate store to allow firmware updates against new servers deployed by Github
+- Added engineering bypass for Grbl check during boot (Mode Button at Step 7/7) 
+
 1.51
 - Holding MODE button down while the big OpenBuilds logo is onscreen during bootup allows you to enter Device Test mode manually
 - Integrated Device Test Mode: V2
