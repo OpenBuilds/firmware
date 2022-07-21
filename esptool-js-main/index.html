@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <title>firmware.openbuilds.com</title>
+    <link rel="stylesheet" href="node_modules/xterm/css/xterm.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet" />
+    <link rel="icon" href="favicon.ico" />
+    <script src="node_modules/xterm/lib/xterm.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.3/pako.js"></script>
+    <script src="node_modules/crypto-js/crypto-js.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+      #terminal {
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 9px 8px, rgba(0, 0, 0, 0.22) 0px 5px 2px;
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <div id="safariErr" style="display:none">
+      <p align="center" style="color:red">This tool is not supported on Safari browser!</p>
+    </div>
+    <div class="container" id="main">
+      <hr />
+      <div id="program">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Device</h3>
+          </div>
+          <div class="panel-body">
+            Connect the OpenBuilds device you want to flash to your computer and click on "Connect" to manage your device.
+            <label style="display:none" id="lblConnTo">Connected to device: </label>
+
+
+
+            <div class="alert alert-danger alert-dismissible" id="alertDiv" style="display:none; margin-top:10px">
+              <a href="#" class="close" aria-label="close" onclick="$('.alert').hide()">&times;</a>
+              <span id="alertmsg"></span>
+            </div>
+
+            <hr>
+            <label for="baudrates" id="lblBaudrate">Baudrate:</label>
+            <select name="baudrates" id="baudrates">
+              <option value="921600">921600</option>
+              <option value="460800">460800</option>
+              <option value="230400">230400</option>
+              <option value="115200">115200</option>
+            </select>
+            <input style="float: right;" class="btn btn-danger btn-sm" type="button" id="disconnectButton" value="Disconnect" />
+            <input style="float: right;" class="btn btn-success btn-sm" type="button" id="connectButton" value="Connect" />
+          </div>
+        </div>
+
+        <div id="files">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Firmware</h3>
+            </div>
+            <div class="panel-body">
+              <ul class="nav nav-tabs">
+                <li role="presentation" id="standardFirmwaresTab" class="active"
+                  onclick="$('#standardFirmwaresTab').addClass('active'); $('#customFirmwaresTab').removeClass('active'); $('#eraseTab').removeClass('active'); $('#standardFirmwares').show(); $('#customFirmwares').hide(); $('#eraseFlash').hide();">
+                  <a href="#">Flash Standard
+                    Devices</a></li>
+                <li role="presentation" id="customFirmwaresTab"
+                  onclick="$('#standardFirmwaresTab').removeClass('active'); $('#customFirmwaresTab').addClass('active'); $('#eraseTab').removeClass('active'); $('#standardFirmwares').hide(); $('#customFirmwares').show(); $('#eraseFlash').hide();"><a
+                    href="#">Flash Custom
+                    Firmware</a></li>
+                <li role="presentation" id="eraseTab"
+                  onclick="$('#standardFirmwaresTab').removeClass('active'); $('#customFirmwaresTab').removeClass('active'); $('#eraseTab').addClass('active'); $('#standardFirmwares').hide(); $('#customFirmwares').hide(); $('#eraseFlash').show();"><a
+                    href="#">Flash Erase</a>
+                </li>
+              </ul>
+
+              <div id="eraseFlash" style="display: none; padding: 30px;">
+                <input class="btn btn-danger btn-sm" type="button" id="eraseButton" value="Erase Flash" />
+              </div>
+
+
+              <div id="standardFirmwares" style="padding: 30px;">
+                <input class="btn btn-success btn-sm " type="button" id="programSWButton" value="OpenBuilds SwitchBlox" />
+                <input class="btn btn-success btn-sm disabled" type="button" id="programBBX32Button" value="OpenBuilds BlackBox X32" />
+                <input class="btn btn-success btn-sm disabled" type="button" id="programIF1Button" value="OpenBuilds Interface V1" />
+                <input class="btn btn-success btn-sm disabled" type="button" id="programIF2Button" value="OpenBuilds Interface X32" />
+              </div>
+
+              <div id="customFirmwares" style="display: none; padding: 30px;">
+                <table class="table table-striped" id="fileTable">
+                  <thead class="thead-light">
+                    <tr>
+                      <th>Flash Address</th>
+                      <th>File</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody id="tableBody">
+                  </tbody>
+                </table>
+
+
+                <hr>
+                <input class="btn btn-info btn-sm" type="button" id="addFile" value="Add File" />
+                <input class="btn btn-success btn-sm" type="button" id="programButton" value="Program Custom Firmware Binaries" />
+
+                <output id="list"></output>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <hr />
+      </div>
+      <div id="console">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Log / Console</h3>
+          </div>
+          <div class="panel-body">
+            <label style="display:none" id="lblConsoleFor">Connected to device: </label>
+            <div id="terminal"></div>
+            <hr>
+            <input class="btn btn-info btn-sm" type="button" id="consoleStartButton" value="Start" />
+            <input class="btn btn-info btn-sm" type="button" id="consoleStopButton" value="Stop" />
+            <input class="btn btn-info btn-sm" type="button" id="resetButton" value="Reset Device" />
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <script src="index.js" type="module"></script>
+    <script>
+      // Safari 3.0+ "[object HTMLElementConstructor]"
+      var isSafari = /constructor/i.test(window.HTMLElement) || (function(p) {
+        return p.toString() === "[object SafariRemoteNotification]";
+      })(!window['safari'] || (typeof safari !== 'undefined' && window['safari'].pushNotification));
+
+      if (isSafari) {
+        document.getElementById("safariErr").style.display = "inline";
+        document.getElementById("main").style.display = "none";
+      }
+    </script>
+  </body>
+
+</html>
