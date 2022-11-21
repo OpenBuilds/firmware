@@ -1,3 +1,13 @@
+1.54 - 1.57
+- BlackBox X32 Support
+- GrblHal ID on Startup
+- Experimental double-read touch filter
+- New Bootlogo
+
+1.53
+- BlackBox X32 Compatibility
+
+
 1.52
 - Updated raw.githubusercontent.com CA certificate store to allow firmware updates against new servers deployed by Github
 - Added engineering bypass for Grbl check during boot (Mode Button at Step 7/7) 
