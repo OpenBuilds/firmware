@@ -1,3 +1,14 @@
+1.58
+- Removed WifiManager (Doesn't work well with more modern phones anymore)
+- New Improved Wifi Setup using CONTROL's USB Prep Wizard
+- Added LEAD1010 Plasma Profile to Load Grbl Profile menu
+- Updated Boot log, added boot progress bar, cleaned up messages, shorted Wifi timeout
+- Cleaned up boot messages in case connection to controller fails
+- Increased easter egg timeout
+- Changed http/https client for future firmware Updates
+- Fixed bug that allowed PRB and SET files to be loaded as jobs - also included new CFG file from exclusion and now these can't be accidentally loaded
+- Disable Webserver skip and Firmware Update check on boot if Wifi did not connect
+
 1.54 - 1.57
 - BlackBox X32 Support
 - GrblHal ID on Startup
