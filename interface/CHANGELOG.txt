@@ -1,6 +1,6 @@
 1.58
 - Removed WifiManager (Doesn't work well with more modern phones anymore)
-- New Improved Wifi Setup using CONTROL's USB Prep Wizard
+- New Improved Wifi Setup using CONTROL's USB Prep Wizard https://docs.openbuilds.com/doku.php?id=docs:interface:wifi-setup-nextgen
 - Added LEAD1010 Plasma Profile to Load Grbl Profile menu
 - Updated Boot log, added boot progress bar, cleaned up messages, shorted Wifi timeout
 - Cleaned up boot messages in case connection to controller fails
